@@ -74,4 +74,4 @@ This repository documents my progression from beginner/intermediate cybersecurit
 
 ## Author
 
-GitHub: @chidieberejosef
+GitHub: @chidiebere Paul-joseph
