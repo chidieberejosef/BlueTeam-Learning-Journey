@@ -1,4 +1,4 @@
-__What is LSASS?__
+__What is LSASS?__/
 LSASS is an abbreviation for Local security authority subsystem service and it is a service that stores credentials on a windows machine
 
 __Why is LSASS valuable to attackers?__
