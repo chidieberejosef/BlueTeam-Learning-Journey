@@ -82,3 +82,46 @@ If an EDR detects suspicious access to LSASS, what would be your first three inv
 who launched the process?
 What command line was used?
 what account was involved ?
+
+
+
+
+## Analyst Challenge — Investigation Timeline
+
+| Time | Event | Assessment |
+|------|------|------------|
+| 02:13 | PowerShell executed | Suspicious in context |
+| 02:14 | update.exe created | Suspicious |
+| 02:14 | update.exe accessed LSASS | Potential credential access |
+| 02:15 | DNS query | Potential C2 indicator |
+| 02:15 | Connection to 185.221.10.4:443 | Potential C2 |
+| 02:17 | John authenticated to FILE-SERVER | Possible lateral movement |
+| 02:21 | John authenticated to DC01 | Requires investigation |
+
+## Hypothesis
+
+FINANCE-PC-04 may have been compromised, with evidence indicating
+potential credential-access activity involving LSASS, suspicious
+PowerShell execution, and possible external C2 communication.
+
+Authentication activity involving the John account requires further
+investigation to determine whether credential compromise and lateral
+movement occurred.
+
+## IOCs
+
+- 185.221.10.4
+- update-secure-login.com
+- update.exe
+
+## IOAs
+
+- Suspicious PowerShell execution
+- Suspicious LSASS access
+- Unexpected external communication
+- Potential abnormal authentication activity
+
+## Potential MITRE ATT&CK Techniques
+
+- T1059.001 — PowerShell
+- T1003.001 — LSASS Memory
