@@ -240,4 +240,7 @@ My Initial Response: Finance-Pc-04 generated an alert for access to LSASS by upd
 
 Correction: You say the process was carried under John's account and not Johnhimself as an attacker may be the one using John's PC
 
-3. In preserving evidences, you go for endpoint evidences; e.g Parent process, Child process, Process tree, FileHash, File paths, telemetry etc rather than events such as: LSASS access, access to FILE_SERVER_01, DC_01 etc. 
+3. In preserving evidences, you go for :
+*Endpoint evidences;* e.g Parent process, Child process, Process tree, FileHash, File paths, telemetry; 
+*Network Evidences* e.g DNS, Firewall, Proxy, EDR network telemetry
+*Authentication Evidence* e.g 4624, 4625  etc rather than events such as: LSASS access, access to FILE_SERVER_01, DC_01 etc. 
