@@ -127,3 +127,117 @@ movement occurred.
 
 - T1059.001 — PowerShell
 - T1003.001 — LSASS Memory
+
+
+
+
+
+Then find three Event ID 4624 events and record:
+1.
+Logon Type - 5
+Account - DESKTOP {MY PC}
+Authentication Package - negotiate
+Source Network Address (if present) - None
+
+2.
+
+
+3.
+Logon Type  - 5
+Account - DESKTOP {MY PC}
+Authentication Package - negotiate
+Source Network Address (if present) - None
+
+
+## Write the 3–5 sentence SOC analyst summary for:
+
+# FINANCE-PC-04 / John / update.exe / LSASS #
+
+ANS:
+Finance-Pc-04 generated an alert for access to LSASS by update.exe. Evidence shows that it is being carried out by John's user account and needs to be further investigated to determine whether his PC is compromised by an attacker
+
+
+
+
+
+
+## Windows Authentication Investigation
+
+### LSASS Investigation
+
+PID: 920
+Path: C:\Windows\System32/lsass.exe
+Company: Microsoft Corporation
+Description: ocal Security Authority Process
+Version:10.0.19041.6328
+
+### Event 4624 Investigation
+
+Event ID: 4624
+Logon Type: 5
+Authentication Package: negotiate
+Source Network Address: - 
+
+### Understanding Logon Types
+
+Type 2: Interactive- Someone logged in
+Type 3: Network - A network authentication occured
+Type 5: Service - A service authenticated
+Type 7: Unlock - 
+Type 10: Remote Interactive/ RDP - Remote Desktop Connection
+
+### NTLM
+
+Definition: This is a windoe
+Analogy:
+Security relevance:
+
+### Kerberos
+
+Definition: Kerberos* is a network authentication protocol that uses tickets issued by a trusted authentication service to allow users and services to authenticate securely within a domain environment.
+
+Analogy:
+Security relevance:
+
+### C2
+
+Definition: Command-and-Control (C2) infrastructure is the attacker-controlled infrastructure used to communicate with compromised systems and potentially send commands, receive information, or coordinate malicious activity.
+# Example:
+
+ATTACKER
+   │
+   │ Commands
+   ▼
+C2 SERVER
+   │
+   │ Commands
+   ▼
+MALWARE
+   │
+   │ Data/results
+   ▼
+C2 SERVER
+   │
+   ▼
+ATTACKER
+Potential indicators:
+
+### Incident Response
+
+Evidence preservation:
+Containment:
+Credential protection:
+Lateral movement investigation:
+
+
+## Questions I Got Wrong or Needed Clarification On
+
+1. Suppose you're an external security consultant and A company calls and says "We think one of our finance computers has been compromised."
+You dont blindly turn off the computer but rather you; Preserve evidence + contain the threat + understand what's happening.
+
+2. In the case of an Alert from a PC in the report below: 
+My Initial Response: Finance-Pc-04 generated an alert for access to LSASS by update.exe. Evidence shows that it is being carried out by John and needs to be further investigated to determine whether his PC is compromised by an attacker."
+
+Correction: You say the process was carried under John's account and not Johnhimself as an attacker may be the one using John's PC
+
+3. In preserving evidences, you go for endpoint evidences; e.g Parent process, Child process, Process tree, FileHash, File paths, telemetry etc rather than events such as: LSASS access, access to FILE_SERVER_01, DC_01 etc. 
