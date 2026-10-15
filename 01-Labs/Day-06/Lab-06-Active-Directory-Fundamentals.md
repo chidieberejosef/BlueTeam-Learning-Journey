@@ -58,8 +58,7 @@ echo %LOGONSERVER% - \\DESKTOP-HGBJJKA
 systeminfo | findstr /B /C:"Domain" - Domain:                    WORKGROUP
 ```
 
-Record the results privately, redact sensitive details, and determine
-whether the machine is using a local account or a domain identity.
+The result above is because it is a local account and not a DC
 
 My personal computer is not domain-joined and I dont expect to have the result of a DC
 
