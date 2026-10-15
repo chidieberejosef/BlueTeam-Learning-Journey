@@ -51,18 +51,17 @@ An event alone does not prove malicious activity.
 On my own Windows computer, use Command Prompt:
 
 ```bat
-whoami
-whoami /all
-echo %USERDOMAIN%
-echo %LOGONSERVER%
-systeminfo | findstr /B /C:"Domain"
+whoami - desktop-hgbjjka\chidi
+whoami /all - desktop-hgbjjka\chidi S-.-.-.-32.........................
+echo %USERDOMAIN% - DESKTOP-HGBJJKA
+echo %LOGONSERVER% - \\DESKTOP-HGBJJKA
+systeminfo | findstr /B /C:"Domain" - Domain:                    WORKGROUP
 ```
 
 Record the results privately, redact sensitive details, and determine
 whether the machine is using a local account or a domain identity.
 
-If the computer is not domain-joined, document that limitation.
-Do not claim to have investigated a Domain Controller that was not available.
+My personal computer is not domain-joined and I dont expect to have the result of a DC
 
 ## Findings
 - Environment:
